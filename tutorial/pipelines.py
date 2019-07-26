@@ -23,18 +23,19 @@ class TutorialPipeline(object):
 # todo：每次运行过程中可以去重，但是还无法从数据库中去重
 class DuplicatesPipeline(object):
     def __init__(self):
-        self.texts_seen = set()
+        self.urls_seen = set()
 
     def process_item(self, item, spider):
-        if item['text'] in self.texts_seen:
+        if item['url'] in self.urls_seen:
             raise DropItem("Duplicate item found: %s" % item)
         else:
-            self.texts_seen.add(item['text'])
+            self.urls_seen.add(item['url'])
             return item
 
 
 class MongoPipeline(object):
-    collection_name = 'quotostoscrape'
+    # collection_name = 'quotostoscrape'
+    collection_name = 'bookstoscrape'
 
     def __init__(self, mongo_uri, mongo_db):
         self.mongo_uri = mongo_uri

@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+"""
+需要登录之后才会出现的页面
+模拟登录方法
+https://docs.scrapy.org/en/latest/topics/request-response.html#using-formrequest-from-response-to-simulate-a-user-login
+"""
 import scrapy
 
 

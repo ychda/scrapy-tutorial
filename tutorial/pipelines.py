@@ -34,8 +34,8 @@ class DuplicatesPipeline(object):
 
 
 class MongoPipeline(object):
-    # collection_name = 'quotostoscrape'
-    collection_name = 'bookstoscrape'
+    collection_name = 'quotostoscrape'
+    # collection_name = 'bookstoscrape'
 
     def __init__(self, mongo_uri, mongo_db):
         self.mongo_uri = mongo_uri

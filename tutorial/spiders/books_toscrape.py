@@ -3,7 +3,7 @@ import scrapy
 
 
 class BookstoscrapeSpider(scrapy.Spider):
-    name = 'bookstoscrape'
+    name = 'books_toscrape'
     allowed_domains = ['books.toscrape.com']
     start_urls = ['http://books.toscrape.com/']
 
@@ -20,5 +20,6 @@ class BookstoscrapeSpider(scrapy.Spider):
             'title': response.css('article.product_page .product_main h1::text').get(),
             'price': response.css('article.product_page .product_main p.price_color::text').get(),
             'url': response.url,
-            'UPC': response.xpath('//table[@class="table table-striped"]/tr/td/text()').get(),  # tbody呢？
+            # https://docs.scrapy.org/en/latest/topics/developer-tools.html#caveats-with-inspecting-the-live-browser-dom
+            'UPC': response.xpath('//table[@class="table table-striped"]/tr/td/text()').get(),
         }

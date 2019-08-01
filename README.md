@@ -9,7 +9,7 @@
 - **Tableful** [http://quotes.toscrape.com/tableful](http://quotes.toscrape.com/tableful)
    - None
 - **Login** [http://quotes.toscrape.com/login](http://quotes.toscrape.com/login)
-   - [login.py](tutorial/spiders/login.py)
+   - [login.py](tutorial/spiders/quotes_login.py)
 - **ViewState** [http://quotes.toscrape.com/search.aspx](http://quotes.toscrape.com/search.aspx)
    - None
 - **Random** [http://quotes.toscrape.com/random](http://quotes.toscrape.com/random)

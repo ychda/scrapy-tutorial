@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# sudo docker run -p 8050:8050 scrapinghub/splash
+
 """
 settings.py中，DEFAULT_REQUEST_HEADERS使用默认值，不要轻易修改。
 修改为自己浏览器的值之后，为什么得不到需要的数据？

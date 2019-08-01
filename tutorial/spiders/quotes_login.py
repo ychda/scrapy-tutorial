@@ -14,7 +14,7 @@ def authentication_failed(response):
 
 
 class LoginSpider(scrapy.Spider):
-    name = 'login'
+    name = 'quotes_login'
     allowed_domains = ['quotes.toscrape.com']
     start_urls = ['http://quotes.toscrape.com/login']
 

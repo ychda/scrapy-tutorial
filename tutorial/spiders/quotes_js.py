@@ -14,7 +14,7 @@ class QuoteSpider(scrapy.Spider):
 
     def start_requests(self):
         for url in self.start_urls:
-            yield SplashRequest(url, args={'images': 0})
+            yield SplashRequest(url, args={'wait': 0.5})
 
     def parse(self, response):
         for quote in response.xpath('//div[@class="quote"]'):
@@ -26,4 +26,4 @@ class QuoteSpider(scrapy.Spider):
             next_page = response.xpath('//a[contains(text(),"Next")]/@href').get()
             if next_page:
                 absolute_url = response.urljoin(next_page)
-                yield SplashRequest(absolute_url, args={'images': 0})
+                yield SplashRequest(absolute_url, args={'wait': 0.5})

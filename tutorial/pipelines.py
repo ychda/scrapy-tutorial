@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# todo: https://github.com/runningRobin/music163/blob/master/music163/pipelines.py
 """
 Typical uses of item pipelines are:
 
@@ -34,7 +35,7 @@ class DuplicatesPipeline(object):
 
 
 class MongoPipeline(object):
-    collection_name = 'quotostoscrape'
+    collection_name = 'quotestoscrape'
     # collection_name = 'bookstoscrape'
 
     def __init__(self, mongo_uri, mongo_db):

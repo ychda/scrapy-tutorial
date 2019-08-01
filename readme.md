@@ -13,4 +13,23 @@
 - **ViewState** [http://quotes.toscrape.com/search.aspx](http://quotes.toscrape.com/search.aspx)
    - None
 - **Random** [http://quotes.toscrape.com/random](http://quotes.toscrape.com/random)
-   - None
+   - [quotes_random](tutorial/spiders/quotes_random.py)
+   - `yield response.follow(next_page, self.parse, dont_filter=True)`
+   
+### mongodb OK
+```mongo
+db.quotestoscrape.aggregate([
+        {$group: {_id: {text: '$text', author: '$author'}, count: {$sum: 1}, dups: {$addToSet: '$_id'}}},
+        {$match: {count: {$gt: 1}}}
+]).forEach(function(doc){
+    doc.dups.shift();
+    db.quotestoscrape.remove({_id: {$in: doc.dups}});
+})
+```
+
+```mongo
+db.quotestoscrape.aggregate([
+    {$group: {_id : '$text', count: {$sum : 1}}},
+    {$match: {count: {$gt : 1}}}
+])
+```
